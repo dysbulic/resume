@@ -17,19 +17,42 @@ body { margin: 1em 4em; max-width: 56em; font-size: 14pt; line-height: 1.3em; ba
 .publication { font-style: italic; }
 h1, h2, h3 { margin: 0; text-align: center; }
 #name, #address { margin: 0; }
-#name { float: left; font-size: 25pt; font-family: 'Champagne & Limousines', "Baskerville Old Face"; margin-top: .5em; }
+#name { float: left; font-size: 25px; font-family: Frontenac; margin-top: 1.5em; }
 #address { float: right; width: 20em; }
 ol { list-style-type: upper-roman; }
 ul { list-style: disc; }
 ul ul { list-style: square; }
 
-#toplist .title:after { content: ':'; }
+.role:before { content: '\2022'; padding: .5em; }
+.role:after { content: '\2014'; padding: .5em; font-family: serif; font-weight: bold; }
+
+p { text-align: justify; }
+
+.location:before {
+    padding-left: .5em;
+    content: ' (';
+}
+.location:after {
+    content: ')';
+}
+.location {
+    font-style: italic;
+}
+
+ol > li { list-style: none; background-image: url('.../image/rule/tapered/svg'); background-repeat: no-repeat; background-position: 0 8px; margin-top: .5em; }
+ol > li > .title { display: inline-block; padding: 0 .25em; text-indent: 0; background-color: rgb(255, 245, 209); font-size: 130%; margin-bottom: .35em; }
+ol > li { text-align: center; }
+ol > li li { text-align: left; }
+
+/*
+  #toplist .title:after { content: ':'; }
+*/
 
 a, #htmltab a { text-decoration: none; color: rgb(11, 25, 120); }
 a:hover, #htmltab a:hover { color: rgb(120, 32, 11); }
 
 ol, ul { margin-left: .5em; padding-left: 0; }
-li { padding-left: 1.5em; text-indent: -1.5em; }
+li { padding-left: 1em; text-indent: -1em; }
 
 @font-face {
   font-family: Coolvetica;
@@ -71,8 +94,13 @@ li { padding-left: 1.5em; text-indent: -1.5em; }
   src: url('.../font/Sansation_Regular.ttf');
 }
 
+@font-face {
+  font-family: Frontenac;
+  src: url('.../font/Frontenac/otf');
+}
+
 @media print {
-  html, body { margin: 0; padding: 0; font-size: 12pt; line-height: 1.27em; max-width: 100%; }
+  html, body { margin: 0; padding: 0; font-size: 12pt; line-height: 1.35em; max-width: 100%; }
   body { margin-left: .1in; }
   /* ol, ul { margin: 0; padding: 0; padding-left: 1em; } */
   ol { list-style-type: none; }
@@ -80,10 +108,31 @@ li { padding-left: 1.5em; text-indent: -1.5em; }
   ul li { font-weight: normal; margin-top: 0; }
   a, #htmltab a { color: inherit; }
   acronym { border: none; }
-  #name { font-size: 12.5pt; margin-top: 1.5em; }
+  #name { font-size: 17px; margin-top: 1.5em; font-weight: bold; }
   #address { width: 13em; }
   #address * { font-size: 12pt; }
   /*#work { page-break-before: always; }*/
 
   .ui-widget-content { border: none; }
+}
+
+#address h2 {
+    margin-bottom: .25em;
+}
+
+acronym {
+    border-bottom: 2px dotted rgba(50, 50, 50, 0.25);
+}
+
+acronym:hover {
+    border-bottom: 3px double rgba(50, 50, 50, 0.25);
+}
+
+.org {
+    font-weight: bold;
+    font-size: 105%;
+}
+
+.company {
+    font-style: italic;
 }
